@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ram-AI Website Generator</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -12,14 +13,12 @@
             <h1>🌙 Ram-AI Website Generator</h1>
             <input type="text" id="websiteIdea" placeholder="Enter website idea">
             <button id="generateBtn">Generate</button>
-
             <div id="loading" class="loading" style="display: none;">
                 <div class="progress-bar">
                     <div id="progress" class="progress" style="width: 0%"></div>
                 </div>
                 <p>Please wait, generating website files... <span id="progressText">0</span>%</p>
             </div>
-
             <div id="result" class="result" style="display: none;">
                 <h2>Website Generated Successfully!</h2>
                 <p><strong>Name:</strong> <span id="generatedName"></span></p>
@@ -28,7 +27,6 @@
             </div>
         </header>
     </div>
-
     <script>
         const generateBtn = document.getElementById('generateBtn');
         const downloadBtn = document.getElementById('downloadBtn');
@@ -37,7 +35,36 @@
         const progress = document.getElementById('progress');
         const progressText = document.getElementById('progressText');
 
-        let taskId = null;
+        let progressInterval;
+        let startTime;
+        const totalDuration = 30000; // 30 detik dalam milidetik
+
+        function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+        }
+
+        function startProgress() {
+            startTime = Date.now();
+            progressInterval = setInterval(updateProgress, 50); // Update setiap 50ms
+        }
+
+        function updateProgress() {
+            const elapsedTime = Date.now() - startTime;
+            const progress = Math.min(elapsedTime / totalDuration, 1);
+            const easedProgress = easeOutCubic(progress);
+            const progressPercentage = Math.min(Math.floor(easedProgress * 99), 99);
+
+            updateProgressUI(progressPercentage);
+
+            if (progress >= 1) {
+                clearInterval(progressInterval);
+            }
+        }
+
+        function updateProgressUI(value) {
+            progress.style.width = `${value}%`;
+            progressText.textContent = value;
+        }
 
         generateBtn.addEventListener('click', async () => {
             const websiteIdea = document.getElementById('websiteIdea').value;
@@ -46,6 +73,7 @@
             generateBtn.disabled = true;
             loading.style.display = 'block';
             result.style.display = 'none';
+            startProgress();
 
             try {
                 const response = await fetch('/api/generate', {
@@ -55,53 +83,25 @@
                     },
                     body: JSON.stringify({ query: websiteIdea }),
                 });
-
                 const data = await response.json();
-                taskId = data.task_id;
+                document.getElementById('generatedName').textContent = data.name;
+                document.getElementById('generatedDescription').textContent = data.description;
+                result.style.display = 'block';
 
-                updateProgress();
+                // Set progress ke 100% ketika generasi selesai
+                clearInterval(progressInterval);
+                updateProgressUI(100);
             } catch (error) {
                 console.error('Error generating website:', error);
+            } finally {
                 generateBtn.disabled = false;
                 loading.style.display = 'none';
             }
         });
 
         downloadBtn.addEventListener('click', () => {
-            if (taskId) {
-                window.location.href = `/api/download/${taskId}`;
-            }
+            window.location.href = '/api/download';
         });
-
-        async function updateProgress() {
-            if (!taskId) return;
-
-            try {
-                const response = await fetch(`/api/progress/${taskId}`);
-                const data = await response.json();
-
-                progress.style.width = `${data.progress}%`;
-                progressText.textContent = data.progress;
-
-                if (data.progress < 100) {
-                    setTimeout(updateProgress, 1000);
-                } else {
-                    const resultResponse = await fetch(`/api/result/${taskId}`);
-                    const resultData = await resultResponse.json();
-
-                    document.getElementById('generatedName').textContent = resultData.name;
-                    document.getElementById('generatedDescription').textContent = resultData.description;
-
-                    result.style.display = 'block';
-                    generateBtn.disabled = false;
-                    loading.style.display = 'none';
-                }
-            } catch (error) {
-                console.error('Error fetching progress:', error);
-                generateBtn.disabled = false;
-                loading.style.display = 'none';
-            }
-        }
     </script>
 </body>
 </html>
