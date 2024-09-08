@@ -1,0 +1,16 @@
+ingat kode yang kamu generate sebelumnya, sekarang buatkan aku semua kode css nya untuk semua halaman html yang kamu buat sebelumnya , jsnya akan saya generate di pertintah selanjutnya, jadi ingat ingat tentang semua elemennya. sesuaikan ukurangambar sesuai dengan websitenya agar pas dengan websitenya, karena jika langsung dimasukkan gambarnya tanpa di ubah ukurannya maka akan tidak rapi jadi kamu harus sesuaikan ukurannya pada kode.
+ keluarkan semua kodenya dalam format json  dengan setiap itemnya mewakili satu file dan setiap itemnya memiliki satu atribut nama, dir, content. pastikan setiap item nya hanya memiliki 3 atribut yang telah disebutkan sebelumnya. seperti contoh berikut, 
+[
+    {
+        "nama": "index.html",
+        "dir": "project-root/index.html",
+        "content": "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"..."
+    },
+    {
+        "nama": "about.html",
+        "dir": "project-root/about.html",
+        "content": ""
+    }
+    ...
+] 
+    buatlah navbarnya rapi dan tidak saling menimpa satu degnan yang lainnya, selain itu perthitungkan semua ukurannya pada nafbar agar ukuran logonya tidak melebihi navbar dan kecilkan ukuran logonya, buatlah secara profesional dan rapi

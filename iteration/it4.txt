@@ -1,0 +1,2 @@
+ingat kode yang kamu generate sebelumnya, sekarang Kamu akan mengenerate deskripsi singkat tentang arsitektur dari website yang dihasilkan dalam bentuk teks biasa, tidak dalam JSON.
+   - Contoh output: `Website ini terdiri dari beberapa halaman utama termasuk index, about, dan contact. Setiap halaman terhubung melalui navbar. Style diatur menggunakan Tailwind CSS dan file CSS tambahan untuk responsivitas. JavaScript digunakan untuk interaktivitas, termasuk handling form dan animasi dasar. Data dummy disimpan dalam format JSON di folder assets/data.`

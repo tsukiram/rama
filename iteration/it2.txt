@@ -1,0 +1,71 @@
+kamu bisa membuatkan untuk saya kode program html, buatkan aku semua kode untuk semua halaman untuk website yang saya ingin buat sebelumnya, buat semua halaman htmlnya saja yang diperlukan, untuk css dan jsnya akan saya generate di pertintah selanjutnya, jadi ingat-ingat tentang semua elemennya yang kamu masukkan ke html yang nantinya akan dibuatkan stylenya dan scriptnya di pesan selanjutnya, untuk alamat file css dan jss ikuti saja struktur file dari pesan sebelumnya. kamu dapat mengakkses gambar atau logo yang kamu perlukan dari internet dengan menyertakan source link ke dalam html pada halaman yang terkait. keluarkan semua kodenya dalam format json  dengan setiap itemnya mewakili satu file dan setiap itemnya memiliki satu atribut nama, dir, content. pastikan setiap item nya hanya memiliki 3 atribut yang telah disebutkan sebelumnya. seperti contoh berikut, 
+[
+    {
+        "nama": "index.html",
+        "dir": "project-root/index.html",
+        "content": "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"..."
+    },
+    {
+        "nama": "about.html",
+        "dir": "project-root/about.html",
+        "content": ""
+    }
+    ...
+] untuk gambar pada website, kamu cukup pilih dari daftar gambar yang saya berikan sebelumnya lalu tautkan ke alamatnya di assets/images, jangan mengambil gambar lain, gunakan saja gambar yang telah saya sediakan, pilih yang paling sesuai dengan konteks, jangan sampai gambarnya kosong. Berikut adalah daftar gambar yang saya miliki, kamu boleng menggunakan sesuai kebutuhan websitenya cukup dengan memberikan src ke gambar yang sesuai. misalnya assets/images/(nama gambar yang sesuai). berikut semua daftar gambar yang saya punya:
+
+1. **Abstract Images**:
+   - `abstract1.jpeg`
+   - `abstract2.jpeg`
+   - `abstract3.jpeg`
+   - `abstract4.jpeg`
+
+2. **Profile Pictures**:
+   - **Blank Profile**: `blankprofile_logo.png`
+   - **Girl Profiles**:
+     - `girl_profile1.jpeg`
+     - `girl_profile2.jpeg`
+     - `girl_profile3.jpeg`
+     - `girl_profile4.jpeg`
+     - `girl_profile5.jpeg`
+   - **Guy Profiles**:
+     - `guy_profile1.jpeg`
+     - `guy_profile2.jpeg`
+     - `guy_profile3.jpeg`
+     - `guy_profile4.jpeg`
+     - `guy_profile5.jpeg`
+
+3. **Discussion Images**:
+   - `discussion1.jpeg`
+   - `discussion2.jpeg`
+   - `discussion3.jpeg`
+   - `discussion4.jpeg`
+
+4. **Logos**:
+   - **Facebook**: `facebook_logo.png`
+   - **Gmail**: `gmail_logo.png`
+   - **Instagram**: `instagram_logo.png`
+   - **Twitter**: `twitter_logo.png`
+   - **WhatsApp**: `whatsapp_logo.png`
+   - **YouTube**: `youtube_logo.png`
+
+5. **Landscape Images**:
+   - `landscape1.jpeg`
+   - `landscape2.jpeg`
+   - `landscape3.jpeg`
+   - `landscape4.jpeg`
+
+6. **Computer Images**:
+   - `komputer1.jpeg`
+   - `komputer2.jpeg`
+   - `komputer3.jpeg`
+   - `komputer4.jpeg`
+
+7. **Logo dummy untuk website**:
+   - `logo1.jpg`
+   - `logo2.jpg`
+   - `logo3.jpg`
+   - `logo4.jpg`
+
+Jumlah total gambar: **37 gambar**  sesuaikan ukuran gambar sesuai dengan websitenya agar pas dengan websitenya, karena jika langsung dimasukkan gambarnya tanpa di ubah ukurannya maka akan tidak rapi jadi kamu harus sesuaikan ukurannya pada kode
+PENTING, JANGAN PERNAH MEMBIARKAN GAMBAR PADA HTML KOSONG. GUNAKAN GAMBAR APAPUN YANG SAYA SEDIAKAN, TIDAK BOLEH MENGGUNAKAN GAMBAR KOSONG
+pastika semua halaman htmlnya terhubung satu sama lain. buatlah yang profesional dan kreatif, sekali lagi sebelum mengeluarkan outputnya cek dulu apakah semua halaman yang akan de generate terhubung dengan baik dan dapat diakses semuanya dengan source yang benar. buatlah SEMUA href nya PADA NAVBAR BENAR DAN MENGARAH KE SEMUA HALAMANNYA jangan sampai pada navbar ada yang href=# harus menuju pada halaman sesuai menu. terakhir buatlah secara profesional dan menarik, dan navbar menganding link ke halaman lain contohnya about.html.contact.html dan lain lain jika perlu, untuk menu pada navbar bikin tulisan biasa saja tak perlu ada bingkainua pada menu agar menghindari error saat menekanya
